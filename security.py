@@ -1,11 +1,12 @@
 classes=['A','B','C','D','E','F','G','H','I','J']
 drivers =[]
-
+#regrouping each driver trip data from 4 different trips in separate data frame
 for c in classes:
     drivers.append(data[data['Class']==c])
     
 dataa=[]
-
+#reset of data index of each driver 
+#assign 3 trips data for training, and the last trip data for validation
 for c in range(len(drivers)):
     nt=0
     nv=0
@@ -20,7 +21,7 @@ for c in range(len(drivers)):
         dataa.append(drivers[c][idxs[i]:])
     print("Driver : "+str(c)+" number of trips :"+str(len(idxs))+ "  For Train : "+str(nt)+"  For valid :"+str(nv))
     
-    
+#sliding window of 60s without overlapping 
 drivers=[]
 ss=0
 for i in range(len(dataa)):
