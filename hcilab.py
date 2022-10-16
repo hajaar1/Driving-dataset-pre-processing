@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn import preprocessing
 
-
+#Regrouping of each driver 4 different trips
 pd.options.display.max_columns = 999
 pd.options.display.max_rows = 50
 data=[]
@@ -24,7 +24,7 @@ columns=[
     'HRV_LF'
 ]
 
-
+#splitting training and validation data (90%-10%)
 training_data=[]
 validation_data=[]
 for i in range(len(data)):
@@ -34,7 +34,7 @@ for i in range(len(data)):
 print(len(training_data))
 print(len(validation_data))
 
-
+#sliding window of 60s with overlapping of 10s
 train=[]
 ss=0
 for i in range(len(training_data)):
@@ -71,7 +71,8 @@ print("total is "+str(ss))
 print("train : "+str(len(train)))
 print("valid : "+str(len(valid)))
 
-
+#Normalisation and scaling
+#shaping training and validation data into arrays
 train_samples = list()
 train_labels=list()
 n=0
