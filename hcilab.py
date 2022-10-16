@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np
 from sklearn import preprocessing
 
-#Regrouping of each driver 4 different trips
 pd.options.display.max_columns = 999
 pd.options.display.max_rows = 50
 data=[]
+#appending the 10 files of 10 drivers in one dataframe
 for i in range(1,11):
   data.append(pd.read_csv('dataset_web/participant_'+str(i)+'.csv',sep=';'))
 for i in range(len(data)):
